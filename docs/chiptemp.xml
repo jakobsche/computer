@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<fpdoc-descriptions>
+  <package name="computer">
+    <module name="ChipTemp">
+      <short>Temperatursensoren abfragen</short>
+      <descr>Die Unit enthält Komponenten, die über das sysfs-Kernelinterface Daten von Temperatursensoren abfragt. Insbesondere kann man darüber die Temperatur und Informationen über Temperaturschaltpunkte als Sensoreigenschaften ermitteln.</descr>
+      <element name="TChipTempSensor">
+        <short>Temperatursensor als Komponente</short>
+        <descr>Mißt die aktuelle Temperatur und zeigt Eigenschaften von Schaltpunkten an</descr>
+      </element>
+      <element name="TTripPoint">
+        <short>Klasse zur Beschreibung eines Temperaturschaltpunkts</short>
+        <descr>Die Klasse zeigt Eigenschaften eines temperaturschaltpunkts an. Ihre Instanzen sind ggf. über die Eigenschaft TripPoints einer TChipTempSensor-Komponente ansprechbar.</descr>
+      </element>
+      <element name="TTripPoint.Temperature">
+        <short>Schalttemperatur in °C</short>
+        <descr>Temperatur, zu der der Schaltpunkt gehört</descr>
+      </element>
+      <element name="TTripPoint.TPType">
+        <short>Schaltpunkttyp</short>
+        <descr>Kurze Beschreibung des Schaltpunkts. Die genaue Bedeutung ist in der Kerneldokumentation des Betriebssystems oder in der Treiberdokumentation des Sensors zu finden.</descr>
+      </element>
+      <element name="TTripPoint.Sensor">
+        <short>Sensor, zu dem der Schaltpunkt gehört</short>
+        <descr>Der Besitzer der TTripPoint-Komponente muß eine TChipTempSensor-Komponente sein. Dann kann man mittels der Eigenschaft Sensor die Zuordnung des Schaltpunkts zu einem bestimmten Sensor feststellen.</descr>
+      </element>
+      <element name="TTripPoint.TPIndex">
+        <short>Index eines Schaltpunkts</short>
+        <descr>Der Kernel weist im sysfs den verschiedenen Schaltpunkten ganzzahlige Indizes zu. Weist man einer TTripPoint-Komponente einen Index mittels TPIndex zu, muß dieser mit einem vom Kernel vergebenen Index übereinstimmen, damit die anderen Eigenschaften für diesen Schaltpunkt gültig sind.</descr>
+        <errors>Ein ungültiger Index führt zu Dateizugriffsfehlern im sysfs</errors>
+      </element>
+      <element name="TChipTempSensor.SensorType">
+        <short>Sensortyp</short>
+        <descr>Die Eigenschaft ist ein kurzer Text, dessen Syntax und Bedeutung vom Kernel oder vom Hardwaretreiber des Sensors bestimmt wird. Sie kann Auskunft über den Ort des Sensors geben, z.B., indem die Bezeichnung des Hardwaremoduls angegeben ist.</descr>
+      </element>
+      <element name="TChipTempSensor.Temperature">
+        <short>gemessene Temperatur des Sensors in °C</short>
+        <descr>vom Sensor augenblicklich gemessene Temperatur in °C</descr>
+      </element>
+      <element name="TChipTempSensor.TripPoints">
+        <short>Temperaturschaltpunkte</short>
+        <descr>Ein gültiger Index ergibt einen gültigen Schaltpunkt (Reaktion des Kernels auf Erreichen der Schaltpunkttemperatur). Seine Bedeutung ergibt sich aus den weiteren Eigenschaften der TTripPoint-Komponente mit dem angegebenen Index</descr>
+        <errors>Ein ungültiger Index der TTripPoint-Komponente löst Exceptions aus, wenn andere Eigenschaften des Schaltpunkts abgefragt werden</errors>
+      </element>
+      <element name="TChipTempSensor.SensorIndex">
+        <short>Index des Temperatursensors</short>
+        <descr>Hier muß ein gültiger Wert vergeben werden. Der Kernel numeriert die Temperatursensoren ab 0 mit ganzen Zahlen. Wird hier eine solche vergeben, wird die Komponente einem realen Sensor zugeordnet, und andere Eigenschaften des Sensors werden in den den Komponenteneigenschaften angezeigt</descr>
+        <errors>Ein ungültiger Indexwert führt zu Fehlern bein Zugriff auf andere Sensoreigenschaften</errors>
+      </element>
+    <element name="TChipTempSensor.Id"><short>eindeutiger Sensorindex im System</short><descr>Das System numeriert die vorhandenen Temperatursensoren mit 0 beginnend durch. Wird eine gültige Nummer angegeben, enthalten die übrigen Eigenschaften Daten dieses Sensors.</descr>
+      </element>
+    <element name="TChipTempSensor.TripPointDescriptions"><short>Beschreibung der Auslösepunkte</short><descr>Die Liste enthält in jedeer Zeile einen Namen und einen Wert, getrennt durch einen Doppelpunkt, sofern solche Auslösepunkte programmiert sind.</descr>
+      </element><element name="TChipTempSensors"><short>Kollektion aller TChipTempSensor-Komponenten des Systems</short><descr>Für jeden Chiptemperatursensor, der im sysfs gefunden wird, enthält die Liste eine TChipTempSensor-Komponente.</descr><seealso><link id="TChipTempSensor"/>TChipTempSensor</seealso>
+      </element><element name="TChipTempSensors.SensorCount"><short>Anzahl der Temperatursensoren</short><descr>Anzahl der in der Eigenschaft Sensors verfügbaren Temperatursensoren</descr>
+      </element><element name="TChipTempSensors.Sensors"><short>Liste der Sensoren</short><descr>Temperatursensoren im System</descr>
+      </element><element name="TTripPoint.Id"><short>Index des Auslösepunkts eines Sensors</short>
+      </element>
+    </module>
+  </package>
+</fpdoc-descriptions>

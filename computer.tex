@@ -1,0 +1,796 @@
+% This file has been created automatically by FPDoc.
+% Linear output (c) 2005 Michael Van Canneyt
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Reference for unit 'ChipTemp'
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\chapter{Reference for unit 'ChipTemp'}
+\label{computer:chiptemp}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Used units
+\section{Used units}
+\begin{FPCltable}{lr}{Used units by unit 'ChipTemp'}{ChipTemp:0units}
+Name & Page \\ \hline
+Classes\index{unit!Classes} & \pageref{computer:chiptemp:classes} \\
+System\index{unit!System} & \pageref{computer:chiptemp:system} \\
+SysUtils\index{unit!SysUtils} & \pageref{computer:chiptemp:sysutils} \\
+\end{FPCltable}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Overview
+\section{Overview}
+Die Unit enthält Komponenten, die über das sysfs-Kernelinterface Daten von Temperatursensoren abfragt. Insbesondere kann man darüber die Temperatur und Informationen über Temperaturschaltpunkte als Sensoreigenschaften ermitteln.%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Procedures and functions
+\section{Procedures and functions}
+\label{chiptempfunctions}
+% Register
+\subsection{Register}
+\label{computer:chiptemp:register}
+\index{Register}
+\begin{FPCList}
+\Declaration 
+
+\begin{verbatim}
+procedure Register
+\end{verbatim}
+\Visibility
+default
+\end{FPCList}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% TChipTempSensor
+\section{TChipTempSensor}
+\label{computer:chiptemp:tchiptempsensor}
+\index{TChipTempSensor}
+% Description
+\subsection{Description}
+Mißt die aktuelle Temperatur und zeigt Eigenschaften von Schaltpunkten an% Method overview
+\subsection{Method overview}
+\label{computer:chiptemp:tchiptempsensor:methods}
+\begin{tabularx}{\textwidth}{llX}
+Page & Method & Description  \\ \hline
+\pageref{computer:chiptemp:tchiptempsensor:destroy} & Destroy  &  \\
+\hline
+\end{tabularx}
+% Property overview
+\subsection{Property overview}
+\label{computer:chiptemp:tchiptempsensor:properties}
+\begin{tabularx}{\textwidth}{lllX}
+Page & Properties & Access & Description \\ \hline
+\pageref{computer:chiptemp:tchiptempsensor:id} & Id & rw & eindeutiger Sensorindex im System \\
+\pageref{computer:chiptemp:tchiptempsensor:sensortype} & SensorType & r & Sensortyp \\
+\pageref{computer:chiptemp:tchiptempsensor:temperature} & Temperature & r & gemessene Temperatur des Sensors in °C \\
+\pageref{computer:chiptemp:tchiptempsensor:trippointdescriptions} & TripPointDescriptions & r & Beschreibung der Auslösepunkte \\
+\pageref{computer:chiptemp:tchiptempsensor:trippoints} & TripPoints & r & Temperaturschaltpunkte \\
+\hline
+\end{tabularx}
+% TChipTempSensor.Destroy
+\subsection{TChipTempSensor.Destroy}
+\label{computer:chiptemp:tchiptempsensor:destroy}
+\index{TChipTempSensor.Destroy}
+\begin{FPCList}
+\Declaration 
+
+\begin{verbatim}
+destructor Destroy;  Override
+\end{verbatim}
+\Visibility
+public
+\end{FPCList}
+% TChipTempSensor.SensorType
+\subsection{TChipTempSensor.SensorType}
+\label{computer:chiptemp:tchiptempsensor:sensortype}
+\index{TChipTempSensor.SensorType}
+\begin{FPCList}
+\Synopsis
+Sensortyp\Declaration 
+
+\begin{verbatim}
+Property SensorType : string
+\end{verbatim}
+\Visibility
+public
+\Access
+Read
+\Description
+Die Eigenschaft ist ein kurzer Text, dessen Syntax und Bedeutung vom Kernel oder vom Hardwaretreiber des Sensors bestimmt wird. Sie kann Auskunft über den Ort des Sensors geben, z.B., indem die Bezeichnung des Hardwaremoduls angegeben ist.\end{FPCList}
+% TChipTempSensor.Temperature
+\subsection{TChipTempSensor.Temperature}
+\label{computer:chiptemp:tchiptempsensor:temperature}
+\index{TChipTempSensor.Temperature}
+\begin{FPCList}
+\Synopsis
+gemessene Temperatur des Sensors in °C\Declaration 
+
+\begin{verbatim}
+Property Temperature : Extended
+\end{verbatim}
+\Visibility
+public
+\Access
+Read
+\Description
+vom Sensor augenblicklich gemessene Temperatur in °C\end{FPCList}
+% TChipTempSensor.TripPointDescriptions
+\subsection{TChipTempSensor.TripPointDescriptions}
+\label{computer:chiptemp:tchiptempsensor:trippointdescriptions}
+\index{TChipTempSensor.TripPointDescriptions}
+\begin{FPCList}
+\Synopsis
+Beschreibung der Auslösepunkte\Declaration 
+
+\begin{verbatim}
+Property TripPointDescriptions : TStrings
+\end{verbatim}
+\Visibility
+public
+\Access
+Read
+\Description
+Die Liste enthält in jedeer Zeile einen Namen und einen Wert, getrennt durch einen Doppelpunkt, sofern solche Auslösepunkte programmiert sind.\end{FPCList}
+% TChipTempSensor.TripPoints
+\subsection{TChipTempSensor.TripPoints}
+\label{computer:chiptemp:tchiptempsensor:trippoints}
+\index{TChipTempSensor.TripPoints}
+\begin{FPCList}
+\Synopsis
+Temperaturschaltpunkte\Declaration 
+
+\begin{verbatim}
+Property TripPoints[I: Integer]: TTripPoint
+\end{verbatim}
+\Visibility
+public
+\Access
+Read
+\Description
+Ein gültiger Index ergibt einen gültigen Schaltpunkt (Reaktion des Kernels auf Erreichen der Schaltpunkttemperatur). Seine Bedeutung ergibt sich aus den weiteren Eigenschaften der TTripPoint-Komponente mit dem angegebenen Index\Errors
+Ein ungültiger Index der TTripPoint-Komponente löst Exceptions aus, wenn andere Eigenschaften des Schaltpunkts abgefragt werden\end{FPCList}
+% TChipTempSensor.Id
+\subsection{TChipTempSensor.Id}
+\label{computer:chiptemp:tchiptempsensor:id}
+\index{TChipTempSensor.Id}
+\begin{FPCList}
+\Synopsis
+eindeutiger Sensorindex im System\Declaration 
+
+\begin{verbatim}
+Property Id : Integer
+\end{verbatim}
+\Visibility
+published
+\Access
+Read,Write
+\Description
+Das System numeriert die vorhandenen Temperatursensoren mit 0 beginnend durch. Wird eine gültige Nummer angegeben, enthalten die übrigen Eigenschaften Daten dieses Sensors.\end{FPCList}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% TChipTempSensors
+\section{TChipTempSensors}
+\label{computer:chiptemp:tchiptempsensors}
+\index{TChipTempSensors}
+% Description
+\subsection{Description}
+Für jeden Chiptemperatursensor, der im sysfs gefunden wird, enthält die Liste eine TChipTempSensor-Komponente.
+\begin{FPCList}
+\SeeAlso
+TChipTempSensor (\pageref{computer:chiptemp:tchiptempsensor})\end{FPCList}
+% Method overview
+\subsection{Method overview}
+\label{computer:chiptemp:tchiptempsensors:methods}
+\begin{tabularx}{\textwidth}{llX}
+Page & Method & Description  \\ \hline
+\pageref{computer:chiptemp:tchiptempsensors:destroy} & Destroy  &  \\
+\hline
+\end{tabularx}
+% Property overview
+\subsection{Property overview}
+\label{computer:chiptemp:tchiptempsensors:properties}
+\begin{tabularx}{\textwidth}{lllX}
+Page & Properties & Access & Description \\ \hline
+\pageref{computer:chiptemp:tchiptempsensors:sensorcount} & SensorCount & r & Anzahl der Temperatursensoren \\
+\pageref{computer:chiptemp:tchiptempsensors:sensors} & Sensors & r & Liste der Sensoren \\
+\hline
+\end{tabularx}
+% TChipTempSensors.Destroy
+\subsection{TChipTempSensors.Destroy}
+\label{computer:chiptemp:tchiptempsensors:destroy}
+\index{TChipTempSensors.Destroy}
+\begin{FPCList}
+\Declaration 
+
+\begin{verbatim}
+destructor Destroy;  Override
+\end{verbatim}
+\Visibility
+public
+\end{FPCList}
+% TChipTempSensors.SensorCount
+\subsection{TChipTempSensors.SensorCount}
+\label{computer:chiptemp:tchiptempsensors:sensorcount}
+\index{TChipTempSensors.SensorCount}
+\begin{FPCList}
+\Synopsis
+Anzahl der Temperatursensoren\Declaration 
+
+\begin{verbatim}
+Property SensorCount : Integer
+\end{verbatim}
+\Visibility
+public
+\Access
+Read
+\Description
+Anzahl der in der Eigenschaft Sensors verfügbaren Temperatursensoren\end{FPCList}
+% TChipTempSensors.Sensors
+\subsection{TChipTempSensors.Sensors}
+\label{computer:chiptemp:tchiptempsensors:sensors}
+\index{TChipTempSensors.Sensors}
+\begin{FPCList}
+\Synopsis
+Liste der Sensoren\Declaration 
+
+\begin{verbatim}
+Property Sensors[I: Integer]: TChipTempSensor
+\end{verbatim}
+\Visibility
+public
+\Access
+Read
+\Description
+Temperatursensoren im System\end{FPCList}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% TTripPoint
+\section{TTripPoint}
+\label{computer:chiptemp:ttrippoint}
+\index{TTripPoint}
+% Description
+\subsection{Description}
+Die Klasse zeigt Eigenschaften eines temperaturschaltpunkts an. Ihre Instanzen sind ggf. über die Eigenschaft TripPoints einer TChipTempSensor-Komponente ansprechbar.% Property overview
+\subsection{Property overview}
+\label{computer:chiptemp:ttrippoint:properties}
+\begin{tabularx}{\textwidth}{lllX}
+Page & Properties & Access & Description \\ \hline
+\pageref{computer:chiptemp:ttrippoint:id} & Id & rw & Index des Auslösepunkts eines Sensors \\
+\pageref{computer:chiptemp:ttrippoint:sensor} & Sensor & r & Sensor, zu dem der Schaltpunkt gehört \\
+\pageref{computer:chiptemp:ttrippoint:temperature} & Temperature & r & Schalttemperatur in °C \\
+\pageref{computer:chiptemp:ttrippoint:tptype} & TPType & r & Schaltpunkttyp \\
+\hline
+\end{tabularx}
+% TTripPoint.Temperature
+\subsection{TTripPoint.Temperature}
+\label{computer:chiptemp:ttrippoint:temperature}
+\index{TTripPoint.Temperature}
+\begin{FPCList}
+\Synopsis
+Schalttemperatur in °C\Declaration 
+
+\begin{verbatim}
+Property Temperature : Extended
+\end{verbatim}
+\Visibility
+public
+\Access
+Read
+\Description
+Temperatur, zu der der Schaltpunkt gehört\end{FPCList}
+% TTripPoint.TPType
+\subsection{TTripPoint.TPType}
+\label{computer:chiptemp:ttrippoint:tptype}
+\index{TTripPoint.TPType}
+\begin{FPCList}
+\Synopsis
+Schaltpunkttyp\Declaration 
+
+\begin{verbatim}
+Property TPType : string
+\end{verbatim}
+\Visibility
+public
+\Access
+Read
+\Description
+Kurze Beschreibung des Schaltpunkts. Die genaue Bedeutung ist in der Kerneldokumentation des Betriebssystems oder in der Treiberdokumentation des Sensors zu finden.\end{FPCList}
+% TTripPoint.Sensor
+\subsection{TTripPoint.Sensor}
+\label{computer:chiptemp:ttrippoint:sensor}
+\index{TTripPoint.Sensor}
+\begin{FPCList}
+\Synopsis
+Sensor, zu dem der Schaltpunkt gehört\Declaration 
+
+\begin{verbatim}
+Property Sensor : TChipTempSensor
+\end{verbatim}
+\Visibility
+public
+\Access
+Read
+\Description
+Der Besitzer der TTripPoint-Komponente muß eine TChipTempSensor-Komponente sein. Dann kann man mittels der Eigenschaft Sensor die Zuordnung des Schaltpunkts zu einem bestimmten Sensor feststellen.\end{FPCList}
+% TTripPoint.Id
+\subsection{TTripPoint.Id}
+\label{computer:chiptemp:ttrippoint:id}
+\index{TTripPoint.Id}
+\begin{FPCList}
+\Synopsis
+Index des Auslösepunkts eines Sensors\Declaration 
+
+\begin{verbatim}
+Property Id : Integer
+\end{verbatim}
+\Visibility
+published
+\Access
+Read,Write
+\end{FPCList}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% TTripPointDescriptions
+\section{TTripPointDescriptions}
+\label{computer:chiptemp:ttrippointdescriptions}
+\index{TTripPointDescriptions}
+% Method overview
+\subsection{Method overview}
+\label{computer:chiptemp:ttrippointdescriptions:methods}
+\begin{tabularx}{\textwidth}{llX}
+Page & Method & Description  \\ \hline
+\pageref{computer:chiptemp:ttrippointdescriptions:get} & Get  &  \\
+\pageref{computer:chiptemp:ttrippointdescriptions:getcount} & GetCount  &  \\
+\hline
+\end{tabularx}
+% TTripPointDescriptions.Get
+\subsection{TTripPointDescriptions.Get}
+\label{computer:chiptemp:ttrippointdescriptions:get}
+\index{TTripPointDescriptions.Get}
+\begin{FPCList}
+\Declaration 
+
+\begin{verbatim}
+function Get(Index: Integer) : string;  Override
+\end{verbatim}
+\Visibility
+protected
+\end{FPCList}
+% TTripPointDescriptions.GetCount
+\subsection{TTripPointDescriptions.GetCount}
+\label{computer:chiptemp:ttrippointdescriptions:getcount}
+\index{TTripPointDescriptions.GetCount}
+\begin{FPCList}
+\Declaration 
+
+\begin{verbatim}
+function GetCount : Integer;  Override
+\end{verbatim}
+\Visibility
+protected
+\end{FPCList}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Reference for unit 'computer'
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\chapter{Reference for unit 'computer'}
+\label{computer:computer}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Used units
+\section{Used units}
+\begin{FPCltable}{lr}{Used units by unit 'computer'}{computer:0units}
+Name & Page \\ \hline
+ChipTemp\index{unit!ChipTemp} & \pageref{computer:chiptemp} \\
+LazarusPackageIntf\index{unit!LazarusPackageIntf} & \pageref{computer:computer:lazaruspackageintf} \\
+LEDView\index{unit!LEDView} & \pageref{computer:ledview} \\
+Retain\index{unit!Retain} & \pageref{computer:retain} \\
+SysFS\index{unit!SysFS} & \pageref{computer:sysfs} \\
+System\index{unit!System} & \pageref{computer:computer:system} \\
+\end{FPCltable}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Reference for unit 'LEDView'
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\chapter{Reference for unit 'LEDView'}
+\label{computer:ledview}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Used units
+\section{Used units}
+\begin{FPCltable}{lr}{Used units by unit 'LEDView'}{LEDView:0units}
+Name & Page \\ \hline
+Classes\index{unit!Classes} & \pageref{computer:ledview:classes} \\
+Controls\index{unit!Controls} & \pageref{computer:ledview:controls} \\
+Dialogs\index{unit!Dialogs} & \pageref{computer:ledview:dialogs} \\
+ExtCtrls\index{unit!ExtCtrls} & \pageref{computer:ledview:extctrls} \\
+Graphics\index{unit!Graphics} & \pageref{computer:ledview:graphics} \\
+StdCtrls\index{unit!StdCtrls} & \pageref{computer:ledview:stdctrls} \\
+System\index{unit!System} & \pageref{computer:ledview:system} \\
+SysUtils\index{unit!SysUtils} & \pageref{computer:ledview:sysutils} \\
+\end{FPCltable}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Constants, types and variables
+\section{Constants, types and variables}
+\label{ledviewconststypesvars}
+% Types
+\subsection{Types}
+\label{ledviewtypes}
+
+\begin{verbatim}
+TLabelPosition = (lpLeft,lpRight)
+\end{verbatim}
+\label{computer:ledview:tlabelposition}
+\index{TLabelPosition}
+\begin{FPCltable}{ll}{Enumeration values for type TLabelPosition
+}{table1}
+Value
+ & Explanation
+\\ \hline
+lpLeft
+ & \\
+lpRight
+ & \\
+\end{FPCltable}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Procedures and functions
+\section{Procedures and functions}
+\label{ledviewfunctions}
+% Register
+\subsection{Register}
+\label{computer:ledview:register}
+\index{Register}
+\begin{FPCList}
+\Declaration 
+
+\begin{verbatim}
+procedure Register
+\end{verbatim}
+\Visibility
+default
+\end{FPCList}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% TLEDView
+\section{TLEDView}
+\label{computer:ledview:tledview}
+\index{TLEDView}
+% Method overview
+\subsection{Method overview}
+\label{computer:ledview:tledview:methods}
+\begin{tabularx}{\textwidth}{llX}
+Page & Method & Description  \\ \hline
+\pageref{computer:ledview:tledview:create} & Create  &  \\
+\hline
+\end{tabularx}
+% Property overview
+\subsection{Property overview}
+\label{computer:ledview:tledview:properties}
+\begin{tabularx}{\textwidth}{lllX}
+Page & Properties & Access & Description \\ \hline
+\pageref{computer:ledview:tledview:caption} & Caption & rw &  \\
+\pageref{computer:ledview:tledview:labelposition} & LabelPosition & rw &  \\
+\pageref{computer:ledview:tledview:ledoffcolor} & LEDOffColor & rw &  \\
+\pageref{computer:ledview:tledview:ledoncolor} & LEDOnColor & rw &  \\
+\pageref{computer:ledview:tledview:value} & Value & rw &  \\
+\hline
+\end{tabularx}
+% TLEDView.Create
+\subsection{TLEDView.Create}
+\label{computer:ledview:tledview:create}
+\index{TLEDView.Create}
+\begin{FPCList}
+\Declaration 
+
+\begin{verbatim}
+constructor Create(AOwner: TComponent);  Override
+\end{verbatim}
+\Visibility
+public
+\end{FPCList}
+% TLEDView.Caption
+\subsection{TLEDView.Caption}
+\label{computer:ledview:tledview:caption}
+\index{TLEDView.Caption}
+\begin{FPCList}
+\Declaration 
+
+\begin{verbatim}
+Property Caption : string
+\end{verbatim}
+\Visibility
+published
+\Access
+Read,Write
+\end{FPCList}
+% TLEDView.LEDOffColor
+\subsection{TLEDView.LEDOffColor}
+\label{computer:ledview:tledview:ledoffcolor}
+\index{TLEDView.LEDOffColor}
+\begin{FPCList}
+\Declaration 
+
+\begin{verbatim}
+Property LEDOffColor : TColor
+\end{verbatim}
+\Visibility
+published
+\Access
+Read,Write
+\end{FPCList}
+% TLEDView.LEDOnColor
+\subsection{TLEDView.LEDOnColor}
+\label{computer:ledview:tledview:ledoncolor}
+\index{TLEDView.LEDOnColor}
+\begin{FPCList}
+\Declaration 
+
+\begin{verbatim}
+Property LEDOnColor : TColor
+\end{verbatim}
+\Visibility
+published
+\Access
+Read,Write
+\end{FPCList}
+% TLEDView.LabelPosition
+\subsection{TLEDView.LabelPosition}
+\label{computer:ledview:tledview:labelposition}
+\index{TLEDView.LabelPosition}
+\begin{FPCList}
+\Declaration 
+
+\begin{verbatim}
+Property LabelPosition : TLabelPosition
+\end{verbatim}
+\Visibility
+published
+\Access
+Read,Write
+\end{FPCList}
+% TLEDView.Value
+\subsection{TLEDView.Value}
+\label{computer:ledview:tledview:value}
+\index{TLEDView.Value}
+\begin{FPCList}
+\Declaration 
+
+\begin{verbatim}
+Property Value : Boolean
+\end{verbatim}
+\Visibility
+published
+\Access
+Read,Write
+\end{FPCList}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Reference for unit 'Retain'
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\chapter{Reference for unit 'Retain'}
+\label{computer:retain}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Used units
+\section{Used units}
+\begin{FPCltable}{lr}{Used units by unit 'Retain'}{Retain:0units}
+Name & Page \\ \hline
+Classes\index{unit!Classes} & \pageref{computer:retain:classes} \\
+Controls\index{unit!Controls} & \pageref{computer:retain:controls} \\
+Dialogs\index{unit!Dialogs} & \pageref{computer:retain:dialogs} \\
+Forms\index{unit!Forms} & \pageref{computer:retain:forms} \\
+Graphics\index{unit!Graphics} & \pageref{computer:retain:graphics} \\
+LResources\index{unit!LResources} & \pageref{computer:retain:lresources} \\
+System\index{unit!System} & \pageref{computer:retain:system} \\
+SysUtils\index{unit!SysUtils} & \pageref{computer:retain:sysutils} \\
+\end{FPCltable}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Procedures and functions
+\section{Procedures and functions}
+\label{retainfunctions}
+% Register
+\subsection{Register}
+\label{computer:retain:register}
+\index{Register}
+\begin{FPCList}
+\Declaration 
+
+\begin{verbatim}
+procedure Register
+\end{verbatim}
+\Visibility
+default
+\end{FPCList}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% TRetainData
+\section{TRetainData}
+\label{computer:retain:tretaindata}
+\index{TRetainData}
+% Method overview
+\subsection{Method overview}
+\label{computer:retain:tretaindata:methods}
+\begin{tabularx}{\textwidth}{llX}
+Page & Method & Description  \\ \hline
+\pageref{computer:retain:tretaindata:beforedestruction} & BeforeDestruction  &  \\
+\pageref{computer:retain:tretaindata:create} & Create  &  \\
+\pageref{computer:retain:tretaindata:loadfromfile} & LoadFromFile  &  \\
+\pageref{computer:retain:tretaindata:savetofile} & SaveToFile  &  \\
+\pageref{computer:retain:tretaindata:update} & Update  &  \\
+\hline
+\end{tabularx}
+% Property overview
+\subsection{Property overview}
+\label{computer:retain:tretaindata:properties}
+\begin{tabularx}{\textwidth}{lllX}
+Page & Properties & Access & Description \\ \hline
+\pageref{computer:retain:tretaindata:haschanged} & HasChanged & rw &  \\
+\hline
+\end{tabularx}
+% TRetainData.LoadFromFile
+\subsection{TRetainData.LoadFromFile}
+\label{computer:retain:tretaindata:loadfromfile}
+\index{TRetainData.LoadFromFile}
+\begin{FPCList}
+\Declaration 
+
+\begin{verbatim}
+procedure LoadFromFile;  Virtual
+\end{verbatim}
+\Visibility
+protected
+\end{FPCList}
+% TRetainData.SaveToFile
+\subsection{TRetainData.SaveToFile}
+\label{computer:retain:tretaindata:savetofile}
+\index{TRetainData.SaveToFile}
+\begin{FPCList}
+\Declaration 
+
+\begin{verbatim}
+procedure SaveToFile;  Virtual
+\end{verbatim}
+\Visibility
+protected
+\end{FPCList}
+% TRetainData.Create
+\subsection{TRetainData.Create}
+\label{computer:retain:tretaindata:create}
+\index{TRetainData.Create}
+\begin{FPCList}
+\Declaration 
+
+\begin{verbatim}
+constructor Create(AOwner: TComponent);  Override
+\end{verbatim}
+\Visibility
+public
+\end{FPCList}
+% TRetainData.BeforeDestruction
+\subsection{TRetainData.BeforeDestruction}
+\label{computer:retain:tretaindata:beforedestruction}
+\index{TRetainData.BeforeDestruction}
+\begin{FPCList}
+\Declaration 
+
+\begin{verbatim}
+procedure BeforeDestruction;  Override
+\end{verbatim}
+\Visibility
+public
+\end{FPCList}
+% TRetainData.Update
+\subsection{TRetainData.Update}
+\label{computer:retain:tretaindata:update}
+\index{TRetainData.Update}
+\begin{FPCList}
+\Declaration 
+
+\begin{verbatim}
+procedure Update;  Virtual
+\end{verbatim}
+\Visibility
+public
+\end{FPCList}
+% TRetainData.HasChanged
+\subsection{TRetainData.HasChanged}
+\label{computer:retain:tretaindata:haschanged}
+\index{TRetainData.HasChanged}
+\begin{FPCList}
+\Declaration 
+
+\begin{verbatim}
+Property HasChanged : Boolean
+\end{verbatim}
+\Visibility
+public
+\Access
+Read,Write
+\end{FPCList}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Reference for unit 'SysFS'
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\chapter{Reference for unit 'SysFS'}
+\label{computer:sysfs}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Used units
+\section{Used units}
+\begin{FPCltable}{lr}{Used units by unit 'SysFS'}{SysFS:0units}
+Name & Page \\ \hline
+Classes\index{unit!Classes} & \pageref{computer:sysfs:classes} \\
+System\index{unit!System} & \pageref{computer:sysfs:system} \\
+SysUtils\index{unit!SysUtils} & \pageref{computer:sysfs:sysutils} \\
+\end{FPCltable}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Overview
+\section{Overview}
+Viele mit dem Computer verbundene Geräte werden auf das sysfs abgebildet. Dort kann man sie als Objektorientierte Struktur über Dateifunktionen ansprechen. So wird die Hardware und der Zugriff darauf abstrakt und Anwendungsprogrammierung unabhängig davon. Beispiel: Ein Gerät wird als Verzeichnis dargestellt. In diesem Verzeichnis befinden sich Dateien und Unterverzeichnisse, die sich zu dem Gerät(everzeichnis) wie Eigenschaften zu einem Objekt verhalten. Eigenschaften, die keine Verzeichnisse sind, sind Textdateien. Der darin enthaltene Text ist der Eigenschaftswert. Der Dateiname kann als Eigenschaftsname verstanden werden. Die Funktionen in dieser Unit vereinfachen den Zugriff auf solche Dateien, indem man ihnen den Dateinamen als Eigenschaftsname übergibt. Ein zu lesender Eigenschaftswert wird als Funktionsergebnis zurückgegeben. Ein zu schreibender Wert wird mit dem Dateinamen (als Eigenschaftsname) als weiterer Parameter übergeben. Alle erforderlichen Dateioperationen für einen Schreib- oder Lesevorgang und die Parametertypumwandlungen sind in der jeweiligen Funktion gekapselt.%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Constants, types and variables
+\section{Constants, types and variables}
+\label{sysfsconststypesvars}
+% Types
+\subsection{Types}
+\label{sysfstypes}
+
+\begin{verbatim}
+TGetIntFunc = function(AttrobuteFileName: string) : LongInt
+\end{verbatim}
+\label{computer:sysfs:tgetintfunc}
+\index{TGetIntFunc}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Procedures and functions
+\section{Procedures and functions}
+\label{sysfsfunctions}
+% GetAttribute
+\subsection{GetAttribute}
+\label{computer:sysfs:getattribute}
+\index{GetAttribute}
+\begin{FPCList}
+\Synopsis
+Attributabfrage als Zeichenkette\Declaration 
+
+\begin{verbatim}
+function GetAttribute(AttributeFileName: string) : string
+\end{verbatim}
+\Visibility
+default
+\Description
+fragt den Inhalt einer Datei als Zeichenkette ab\end{FPCList}
+% GetBooleanAttribute
+\subsection{GetBooleanAttribute}
+\label{computer:sysfs:getbooleanattribute}
+\index{GetBooleanAttribute}
+\begin{FPCList}
+\Synopsis
+Attributabfrage als Zeichenkette\Declaration 
+
+\begin{verbatim}
+function GetBooleanAttribute(AttributeFileName: string) : Boolean
+\end{verbatim}
+\Visibility
+default
+\Description
+fragt den Inhalt einer Datei als Wahrheitswert ab\end{FPCList}
+% GetIntAttribute
+\subsection{GetIntAttribute}
+\label{computer:sysfs:getintattribute}
+\index{GetIntAttribute}
+\begin{FPCList}
+\Declaration 
+
+\begin{verbatim}
+function GetIntAttribute(AttributeFileName: string) : LongInt
+\end{verbatim}
+\Visibility
+default
+\end{FPCList}
+% SetAttribute
+\subsection{SetAttribute}
+\label{computer:sysfs:setattribute}
+\index{SetAttribute}
+\begin{FPCList}
+\Declaration 
+
+\begin{verbatim}
+procedure SetAttribute(AttributeFileName: string; Value: LongInt)
+                      ;  Overload
+procedure SetAttribute(AttributeFileName: string; Value: string)
+                      ;  Overload
+procedure SetAttribute(AttributeFileName: string; Value: Boolean)
+                      ;  Overload
+\end{verbatim}
+\Visibility
+default
+\end{FPCList}

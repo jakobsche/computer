@@ -1,0 +1,10 @@
+#!/bin/sh 
+
+# Packagedokumentation erstellen
+#===============================
+
+# Wenn die Dokumentationsprojektdatei vorhanden ist, wird mit diesem Skript die Dokumentation erzeugt.
+
+fpdoc --project=computer-html.dp
+fpdoc --project=computer-chm.dp
+fpdoc --project=computer-latex.dp

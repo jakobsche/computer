@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<fpdoc-descriptions>
+  <package name="computer">
+    <module name="SysFS">
+      <short>Funktionen zum Zugriff auf das sysfs</short>
+      <descr>Viele mit dem Computer verbundene Geräte werden auf das sysfs abgebildet. Dort kann man sie als Objektorientierte Struktur über Dateifunktionen ansprechen. So wird die Hardware und der Zugriff darauf abstrakt und Anwendungsprogrammierung unabhängig davon. Beispiel: Ein Gerät wird als Verzeichnis dargestellt. In diesem Verzeichnis befinden sich Dateien und Unterverzeichnisse, die sich zu dem Gerät(everzeichnis) wie Eigenschaften zu einem Objekt verhalten. Eigenschaften, die keine Verzeichnisse sind, sind Textdateien. Der darin enthaltene Text ist der Eigenschaftswert. Der Dateiname kann als Eigenschaftsname verstanden werden. Die Funktionen in dieser Unit vereinfachen den Zugriff auf solche Dateien, indem man ihnen den Dateinamen als Eigenschaftsname übergibt. Ein zu lesender Eigenschaftswert wird als Funktionsergebnis zurückgegeben. Ein zu schreibender Wert wird mit dem Dateinamen (als Eigenschaftsname) als weiterer Parameter übergeben. Alle erforderlichen Dateioperationen für einen Schreib- oder Lesevorgang und die Parametertypumwandlungen sind in der jeweiligen Funktion gekapselt.</descr>
+    <element name="GetAttribute"><short>Attributabfrage als Zeichenkette</short><descr>fragt den Inhalt einer Datei als Zeichenkette ab</descr>
+      </element><element name="GetAttribute.AttributeFileName"><short>Dateiname</short><descr>Dateiname im sysfs</descr>
+      </element><element name="GetBooleanAttribute"><short>Attributabfrage als Zeichenkette</short><descr>fragt den Inhalt einer Datei als Wahrheitswert ab</descr>
+      </element>
+    </module>
+  </package>
+</fpdoc-descriptions>

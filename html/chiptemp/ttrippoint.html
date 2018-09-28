@@ -1,0 +1,78 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type">
+<title>TTripPoint</title>
+<link rel="stylesheet" href="../fpdoc.css" type="text/css">
+
+</head>
+<body>
+<table class="bar" width="100%" border="0" cellpadding="4" cellspacing="0">
+<tr>
+<td><b>[<a href="../chiptemp/index.html">Overview</a>][<a href="../chiptemp/index-4.html">Classes</a>][<a href="../chiptemp/index-5.html">Procedures and functions</a>][<a href="../chiptemp/index-8.html">Index</a>]</b></td>
+<td align="right"><span class="bartitle">Reference for unit 'ChipTemp' (<a href="../index.html">#computer</a>)</span></td>
+</tr>
+</table>
+<h1>TTripPoint</h1>
+<p>[<a href="../chiptemp/ttrippoint-1.html" onClick="window.open('../chiptemp/ttrippoint-1.html', 'list', 'dependent=yes,resizable=yes,scrollbars=yes,height=400,width=300'); return false;">Properties</a> (<a href="../chiptemp/ttrippoint-2.html" onClick="window.open('../chiptemp/ttrippoint-2.html', 'list', 'dependent=yes,resizable=yes,scrollbars=yes,height=400,width=300'); return false;">by Name</a>)] [<a href="../chiptemp/ttrippoint-3.html" onClick="window.open('../chiptemp/ttrippoint-3.html', 'list', 'dependent=yes,resizable=yes,scrollbars=yes,height=400,width=300'); return false;">Methods</a> (<a href="../chiptemp/ttrippoint-4.html" onClick="window.open('../chiptemp/ttrippoint-4.html', 'list', 'dependent=yes,resizable=yes,scrollbars=yes,height=400,width=300'); return false;">by Name</a>)] [<a href="../chiptemp/ttrippoint-5.html" onClick="window.open('../chiptemp/ttrippoint-5.html', 'list', 'dependent=yes,resizable=yes,scrollbars=yes,height=400,width=300'); return false;">Events</a> (<a href="../chiptemp/ttrippoint-6.html" onClick="window.open('../chiptemp/ttrippoint-6.html', 'list', 'dependent=yes,resizable=yes,scrollbars=yes,height=400,width=300'); return false;">by Name</a>)] </p>
+<p>Klasse zur Beschreibung eines Temperaturschaltpunkts</p>
+<h2>Declaration</h2>
+<p>Source position: chiptemp.pas line 31</p>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td><p><tt><span class="code"><span class="kw">type</span> TTripPoint <span class="sym">=</span> <span class="kw">class</span><span class="sym">(</span>TComponent<span class="sym">)</span> <span class="kw">end</span><span class="sym">;</span></span></tt></p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="kw">public</span></span></tt></p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">property </span><a href="../chiptemp/ttrippoint.temperature.html">Temperature</a><span class="sym">: </span>Extended<span class="sym">;</span>  [r]</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Schalttemperatur in °C</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">property </span><a href="../chiptemp/ttrippoint.tptype.html">TPType</a><span class="sym">: </span>string<span class="sym">;</span>  [r]</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Schaltpunkttyp</p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">property </span><a href="../chiptemp/ttrippoint.sensor.html">Sensor</a><span class="sym">: </span><a href="../chiptemp/tchiptempsensor.html">TChipTempSensor</a><span class="sym">;</span>  [r]</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Sensor, zu dem der Schaltpunkt gehört</p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"><span class="kw">published</span></span></tt></p></td>
+</tr>
+<tr>
+<td valign="top"><p><tt><span class="code">&nbsp;&nbsp;<span class="kw">property </span><a href="../chiptemp/ttrippoint.id.html">Id</a><span class="sym">: </span>Integer<span class="sym">;</span>  [rw]</span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Index des Auslösepunkts eines Sensors</p></td>
+</tr>
+<tr>
+<td><p><tt><span class="code"></span></tt></p></td>
+</tr>
+</table>
+<h2>Inheritance</h2>
+<table cellpadding="0" cellspacing="0">
+<tr>
+<td align="center" valign="top"><p><tt><span class="code"><a href="../chiptemp/ttrippoint.html">TTripPoint</a></span></tt></p></td>
+<td><p>&nbsp;&nbsp;</p></td>
+<td><p class="cmt">Klasse zur Beschreibung eines Temperaturschaltpunkts</p></td>
+</tr>
+<tr>
+<td align="center">|</td>
+</tr>
+<tr>
+<td align="center"><p><tt><span class="code">TComponent</span></tt></p></td>
+</tr>
+<tr>
+<td align="center">?</td>
+</tr>
+<tr>
+<td align="center"><p><tt><span class="code">TObject</span></tt></p></td>
+</tr>
+</table>
+<h2>Description</h2>
+<p>Die Klasse zeigt Eigenschaften eines temperaturschaltpunkts an. Ihre Instanzen sind ggf. über die Eigenschaft TripPoints einer TChipTempSensor-Komponente ansprechbar.</p>
+</body>
+</html>
