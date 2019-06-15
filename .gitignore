@@ -1,6 +1,7 @@
 .svn
-.directory
+*.directory
 *.dp
 *.bak
 pc16550d.pdf
 lib
+backup

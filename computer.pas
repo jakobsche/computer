@@ -4,11 +4,10 @@
 
 unit computer;
 
-{$warn 5023 off : no warning about unused units}
 interface
 
 uses
-  ChipTemp, SysFS, LEDView, Retain, SerComm, SinusGenerator, LazarusPackageIntf;
+  ChipTemp, SysFS, LEDView, Retain, SinusGenerator, LazarusPackageIntf;
 
 implementation
 

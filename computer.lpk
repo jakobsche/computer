@@ -10,7 +10,7 @@
       </SearchPaths>
     </CompilerOptions>
     <Version Major="1"/>
-    <Files Count="11">
+    <Files Count="10">
       <Item1>
         <Filename Value="chiptemp.pas"/>
         <HasRegisterProc Value="True"/>
@@ -50,14 +50,10 @@
         <UnitName Value="Retain"/>
       </Item9>
       <Item10>
-        <Filename Value="sercomm.pas"/>
-        <UnitName Value="sercomm"/>
-      </Item10>
-      <Item11>
         <Filename Value="sinusgenerator.pas"/>
         <HasRegisterProc Value="True"/>
         <UnitName Value="SinusGenerator"/>
-      </Item11>
+      </Item10>
     </Files>
     <LazDoc Paths="docs"/>
     <RequiredPkgs Count="4">
